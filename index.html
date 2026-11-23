@@ -91,6 +91,28 @@ td.own{font-size:13px;color:var(--mut)}
 .note{color:var(--mut);font-size:13.5px;margin:16px 0 0}
 footer{margin-top:104px;border-top:1.5px solid var(--ink);padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer span{font:600 9.5px 'Geist Mono',monospace;letter-spacing:0.16em;text-transform:uppercase;color:var(--mut)}
+.stage-panel{border:1px solid var(--line);border-radius:12px;background:#FFFFFF;padding:24px 26px}
+.flow-link{display:flex;justify-content:center;padding:10px 0}
+.sp-hd{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:16px}
+.sp-num{flex:none;width:32px;height:32px;background:var(--ink);color:#FFFFFF;border-radius:8px;display:flex;align-items:center;justify-content:center;font:600 14px 'Geist Mono',monospace}
+.sp-hd h3{margin:0;flex:1;font:600 17px 'Geist',sans-serif;color:var(--ink)}
+.sp-meta{font:600 9.5px 'Geist Mono',monospace;letter-spacing:0.12em;color:var(--soft);text-transform:uppercase}
+.sp-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.sp-item{border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:grid;gap:6px;align-content:start;background:#FFFFFF}
+.sp-name{font:600 13.5px 'Geist',sans-serif;color:var(--ink)}
+.sp-desc{font-size:12.5px;color:var(--mut);line-height:1.5}
+.sp-foot{display:flex;align-items:center;gap:10px;margin-top:2px}
+.sp-foot .st{margin-left:auto}
+.sp-gap{flex:1}
+.sp-callouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:14px}
+.sp-callout{display:flex;align-items:center;gap:12px;border:1px dashed var(--line2);border-radius:8px;padding:12px 16px;background:#FFFFFF}
+.sp-callout .sp-name{flex:1}
+.sp-callout.open{border-color:var(--ink)}
+.sp-callout.gate{border-style:solid;border-color:var(--ink);background:var(--ink)}
+.sp-callout.gate .sp-name{color:#FFFFFF;flex:none}
+.sp-callout.gate .sp-desc{color:#F7F7F5}
+.sp-glyph{font-size:12px;color:var(--mut)}
+.sp-callout.gate .sp-glyph{color:#FFFFFF}
 @media (max-width:800px){
  .wrap{padding:36px 20px 72px}
  header.top{grid-template-columns:1fr}
@@ -139,7 +161,7 @@ footer span{font:600 9.5px 'Geist Mono',monospace;letter-spacing:0.16em;text-tra
 </section>
 
 <section id="flow">
- <div class="sec"><div class="n">02</div><div class="t"><h2>End-to-end flow and dependencies</h2><p>Arrows show what each piece depends on. The pipeline shows the seven stages; every stage&#x27;s items, tickets and status sit in the stage detail below. Blockers attach as dashed notes.</p></div></div>
+ <div class="sec"><div class="n">02</div><div class="t"><h2>End-to-end flow and dependencies</h2><p>Arrows show what each piece depends on. The seven stage panels run top to bottom; every item, ticket and status sits inside its stage. Blockers attach as dashed callouts.</p></div></div>
  <div class="legend">
   <div class="lg"><strong>Repo</strong>
    <span class="lg"><span class="rtag">OC</span> OneChat</span>
@@ -152,87 +174,47 @@ footer span{font:600 9.5px 'Geist Mono',monospace;letter-spacing:0.16em;text-tra
   <div class="lg"><strong>Blockers</strong>
    <span class="lg"><span class="bx bx-dash"></span> Open</span></div>
  </div>
- <div class="fig"><svg viewBox="0 0 1560 470" role="img" aria-labelledby="fpflow-title fpflow-desc" xmlns="http://www.w3.org/2000/svg" font-family="Geist, sans-serif">
-<title id="fpflow-title">End-to-end flow, assumptions to advisor-ready report</title>
-<desc id="fpflow-desc">Seven stages flow left to right: assumptions foundation, client data intake, review and approve, the 23-module plan engine with a resolved QA sign-off gate, the AI insight layer, plan result and report, then the roadmap. Dashed notes mark dependencies and blockers.</desc>
-<defs><marker id="fa" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#5F5F5F"/></marker></defs>
-<line x1="214" y1="170.0" x2="245" y2="170.0" stroke="#5F5F5F" stroke-width="1.4" marker-end="url(#fa)"/>
-<line x1="434" y1="170.0" x2="465" y2="170.0" stroke="#5F5F5F" stroke-width="1.4" marker-end="url(#fa)"/>
-<line x1="654" y1="170.0" x2="685" y2="170.0" stroke="#5F5F5F" stroke-width="1.4" marker-end="url(#fa)"/>
-<line x1="874" y1="170.0" x2="905" y2="170.0" stroke="#5F5F5F" stroke-width="1.4" marker-end="url(#fa)"/>
-<line x1="1094" y1="170.0" x2="1125" y2="170.0" stroke="#5F5F5F" stroke-width="1.4" marker-end="url(#fa)"/>
-<line x1="1314" y1="170.0" x2="1345" y2="170.0" stroke="#5F5F5F" stroke-width="1.4" marker-end="url(#fa)"/>
-<path d="M 120.0,220 V 254 H 780.0 V 225" fill="none" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#fa)"/>
-<rect x="394" y="232" width="112" height="14" rx="3" fill="#FFFFFF"/>
-<text x="450" y="243" fill="#8A8A8A" font-size="9" font-family="Geist Mono, monospace" text-anchor="middle" letter-spacing="0.1em">FEEDS ENGINE</text>
-<line x1="780" y1="104" x2="780" y2="118" stroke="#5F5F5F" stroke-width="1.4" marker-end="url(#fa)"/>
-<rect x="696" y="56" width="168" height="48" rx="8" fill="#0A0A0A"/>
-<text x="780" y="72" fill="#FFFFFF" font-size="12.5" font-weight="600" text-anchor="middle">QA sign-off</text>
-<text x="780" y="88" fill="#F7F7F5" font-size="9" font-family="Geist Mono, monospace" text-anchor="middle">MOHAN · 20 NOV · RESOLVED</text>
-<path d="M 864,80 H 1220.0 V 118" fill="none" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#fa)"/>
-<rect x="970" y="66" width="144" height="14" rx="3" fill="#FFFFFF"/>
-<text x="1042" y="77" fill="#8A8A8A" font-size="9" font-family="Geist Mono, monospace" text-anchor="middle" letter-spacing="0.1em">DEFINES WHAT TO SHOW</text>
-<rect x="472" y="308" width="172" height="64" rx="8" fill="#F1F1EF" stroke="#A3A3A0" stroke-width="1.1" stroke-dasharray="5,4"/>
-<text x="486" y="327" fill="#0A0A0A" font-size="10" font-weight="600" font-family="Geist Mono, monospace" letter-spacing="0.12em">RESOLVED</text>
-<text x="486" y="345" fill="#5F5F5F" font-size="11">30 Oct integration smoke · 4</text>
-<text x="486" y="360" fill="#5F5F5F" font-size="11">P0 gaps fixed</text>
-<rect x="684" y="308" width="172" height="64" rx="8" fill="#F1F1EF" stroke="#0A0A0A" stroke-width="1.1" stroke-dasharray="5,4"/>
-<text x="698" y="327" fill="#0A0A0A" font-size="10" font-weight="600" font-family="Geist Mono, monospace" letter-spacing="0.12em">OPEN</text>
-<text x="698" y="345" fill="#5F5F5F" font-size="11">service auth + gather</text>
-<text x="698" y="360" fill="#5F5F5F" font-size="11">hardening · C3A-1879</text>
-<rect x="1140" y="308" width="172" height="64" rx="8" fill="#F1F1EF" stroke="#0A0A0A" stroke-width="1.1" stroke-dasharray="5,4"/>
-<text x="1154" y="327" fill="#0A0A0A" font-size="10" font-weight="600" font-family="Geist Mono, monospace" letter-spacing="0.12em">OPEN</text>
-<text x="1154" y="345" fill="#5F5F5F" font-size="11">OMSA platform access</text>
-<rect x="1352" y="308" width="172" height="64" rx="8" fill="#F1F1EF" stroke="#0A0A0A" stroke-width="1.1" stroke-dasharray="5,4"/>
-<text x="1366" y="327" fill="#0A0A0A" font-size="10" font-weight="600" font-family="Geist Mono, monospace" letter-spacing="0.12em">OPEN</text>
-<text x="1366" y="345" fill="#5F5F5F" font-size="11">India market data and tax</text>
-<text x="1366" y="360" fill="#5F5F5F" font-size="11">rules</text>
-<rect x="32" y="120" width="176" height="100" rx="8" fill="#FFFFFF" stroke="#A3A3A0" stroke-width="1.25"/>
-<text x="48" y="146" fill="#8A8A8A" font-size="10" font-family="Geist Mono, monospace" letter-spacing="0.14em">01</text>
-<text x="48" y="172" fill="#0A0A0A" font-size="15" font-weight="600">Assumptions</text>
-<text x="48" y="191" fill="#0A0A0A" font-size="15" font-weight="600">foundation</text>
-<text x="48" y="206" fill="#8A8A8A" font-size="8.5" font-family="Geist Mono, monospace" letter-spacing="0.08em">US MARKET</text>
-<rect x="252" y="120" width="176" height="100" rx="8" fill="#FFFFFF" stroke="#A3A3A0" stroke-width="1.25"/>
-<text x="268" y="146" fill="#8A8A8A" font-size="10" font-family="Geist Mono, monospace" letter-spacing="0.14em">02</text>
-<text x="268" y="172" fill="#0A0A0A" font-size="15" font-weight="600">Client data</text>
-<text x="268" y="191" fill="#0A0A0A" font-size="15" font-weight="600">intake</text>
-<rect x="472" y="120" width="176" height="100" rx="8" fill="#FFFFFF" stroke="#A3A3A0" stroke-width="1.25"/>
-<text x="488" y="146" fill="#8A8A8A" font-size="10" font-family="Geist Mono, monospace" letter-spacing="0.14em">03</text>
-<text x="488" y="172" fill="#0A0A0A" font-size="15" font-weight="600">Review and</text>
-<text x="488" y="191" fill="#0A0A0A" font-size="15" font-weight="600">approve</text>
-<rect x="692" y="120" width="176" height="100" rx="8" fill="#FFFFFF" stroke="#A3A3A0" stroke-width="1.25"/>
-<text x="708" y="146" fill="#8A8A8A" font-size="10" font-family="Geist Mono, monospace" letter-spacing="0.14em">04</text>
-<text x="708" y="172" fill="#0A0A0A" font-size="15" font-weight="600">Plan engine</text>
-<text x="708" y="191" fill="#0A0A0A" font-size="15" font-weight="600">M01–M23</text>
-<text x="708" y="206" fill="#8A8A8A" font-size="8.5" font-family="Geist Mono, monospace" letter-spacing="0.08em">RUNS IN ONECHAT</text>
-<rect x="912" y="120" width="176" height="100" rx="8" fill="#FFFFFF" stroke="#A3A3A0" stroke-width="1.25"/>
-<text x="928" y="146" fill="#8A8A8A" font-size="10" font-family="Geist Mono, monospace" letter-spacing="0.14em">05</text>
-<text x="928" y="172" fill="#0A0A0A" font-size="15" font-weight="600">AI insight</text>
-<text x="928" y="191" fill="#0A0A0A" font-size="15" font-weight="600">layer</text>
-<text x="928" y="206" fill="#8A8A8A" font-size="8.5" font-family="Geist Mono, monospace" letter-spacing="0.08em">RUNS IN ONECHAT</text>
-<rect x="1132" y="120" width="176" height="100" rx="8" fill="#FFFFFF" stroke="#A3A3A0" stroke-width="1.25"/>
-<text x="1148" y="146" fill="#8A8A8A" font-size="10" font-family="Geist Mono, monospace" letter-spacing="0.14em">06</text>
-<text x="1148" y="172" fill="#0A0A0A" font-size="15" font-weight="600">Plan result</text>
-<text x="1148" y="191" fill="#0A0A0A" font-size="15" font-weight="600">and report</text>
-<rect x="1352" y="120" width="176" height="100" rx="8" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.25"/>
-<text x="1368" y="146" fill="#8A8A8A" font-size="10" font-family="Geist Mono, monospace" letter-spacing="0.14em">07</text>
-<text x="1368" y="172" fill="#FFFFFF" font-size="15" font-weight="600">Roadmap</text>
-<line x1="32" y1="434" x2="1528" y2="434" stroke="#D8D8D5" stroke-width="1"/>
-<text x="32" y="448" fill="#8A8A8A" font-size="8.5" font-family="Geist Mono, monospace" letter-spacing="0.16em">LEGEND</text>
-<line x1="108" y1="445" x2="134" y2="445" stroke="#5F5F5F" stroke-width="1.4" marker-end="url(#fa)"/>
-<text x="142" y="448" fill="#5F5F5F" font-size="9.5">primary path</text>
-<line x1="232" y1="445" x2="258" y2="445" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="5,4"/>
-<text x="266" y="448" fill="#5F5F5F" font-size="9.5">dependency or blocker</text>
-<rect x="428" y="436" width="18" height="11" rx="3" fill="#0A0A0A"/>
-<text x="454" y="448" fill="#5F5F5F" font-size="9.5">resolved review gate</text>
-</svg></div>
- <div class="stages"><div class="stage"><div class="stage-hd"><span class="stage-num">01</span><h3>Assumptions foundation</h3><span class="stage-meta">US MARKET</span></div><ul><li><span class="bullet"></span><span class="it-name">Assumptions register v2</span><span class="rtag">OC</span><span class="it-meta">20 groups · ~170 keys · JPM capital markets · SSA life table</span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">3 advisor review rounds</span><span class="rtag">OC</span><span class="it-meta">12 Oct · 15 Oct · 19 Oct refresh</span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">Live tax and SS law</span><span class="rtag">OC</span><span class="it-meta">PolicyEngine-US · 5 filing statuses</span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">Assumptions config API</span><span class="rtag">DJ</span><span class="it-meta">v2 → v2.3 · overrides · expiry</span><span class="tick">C3A-1684</span><span class="st c-fill">Built · staging</span></li><li><span class="bullet"></span><span class="it-name">Assumptions workspace</span><span class="rtag">WEB</span><span class="it-meta">search · validation · glide path</span><span class="tick">C3A-1886–1891</span><span class="st c-fill">Built · staging</span></li></ul></div>
-<div class="stage"><div class="stage-hd"><span class="stage-num">02</span><h3>Client data intake</h3></div><ul><li><span class="bullet"></span><span class="it-name">Start a plan</span><span class="rtag">WEB</span><span class="it-meta">meeting · PDF upload · manual form</span><span class="tick">C3A-1946 / 1947</span><span class="st c-dark">In progress</span></li><li><span class="bullet"></span><span class="it-name">Meeting collectors</span><span class="rtag">OC</span><span class="it-meta">transcript · summary</span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">Document collector</span><span class="rtag">OC</span><span class="it-meta">parsing · extraction</span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">PII redaction</span><span class="rtag">OC</span><span class="it-meta">before any model call</span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">Intake APIs</span><span class="rtag">DJ</span><span class="it-meta">status machine · documents</span><span class="tick">C3A-1866</span><span class="st c-fill">Built · staging</span></li><li><span class="bullet"></span><span class="it-name">AI gather</span><span class="rtag">OC</span><span class="it-meta">candidate extraction · timeouts</span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">Canonical plan input</span><span class="rtag">OC</span><span class="it-meta">merge · validators · hints</span><span class="st c-out">Built</span></li></ul></div>
-<div class="stage"><div class="stage-hd"><span class="stage-num">03</span><h3>Review and approve</h3></div><ul><li><span class="bullet"></span><span class="it-name">Versioned review</span><span class="rtag">DJ</span><span class="it-meta">save · retry · cancel</span><span class="tick">C3A-1866</span><span class="st c-fill">Built · staging</span></li><li><span class="bullet"></span><span class="it-name">Approval screen</span><span class="rtag">WEB</span><span class="it-meta">plan running states</span><span class="tick">C3A-1948</span><span class="st c-dark">In progress</span></li><li><span class="bullet"></span><span class="it-name">Validate gate</span><span class="rtag">OC</span><span class="it-meta">engine contract check</span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">Approve → create plan job</span><span class="rtag">DJ</span><span class="it-meta"></span><span class="st c-fill">Built · staging</span></li><li class="blk"><span class="bullet"></span><span class="it-name">30 Oct integration smoke · 4 P0 gaps fixed</span><span class="st c-fill">RESOLVED</span></li><li class="blk"><span class="bullet"></span><span class="it-name">service auth + gather hardening · C3A-1879</span><span class="st c-dark">OPEN</span></li></ul></div>
-<div class="stage"><div class="stage-hd"><span class="stage-num">04</span><h3>Plan engine · M01–M23</h3><span class="stage-meta">RUNS IN ONECHAT</span></div><ul><li><span class="bullet"></span><span class="it-name">M01–M04</span><span class="rtag">OC</span><span class="it-meta">inputs · timeline · inflation · market tapes</span><span class="st c-fill">Built · QA-tested</span></li><li><span class="bullet"></span><span class="it-name">M05–M09</span><span class="rtag">OC</span><span class="it-meta">portfolio · income · SS · expenses · retirement need</span><span class="st c-fill">Built · QA-tested</span></li><li><span class="bullet"></span><span class="it-name">M10–M14</span><span class="rtag">OC</span><span class="it-meta">debt · tax · yearly loop · RMD · waterfall · deficit</span><span class="st c-fill">Built · QA-tested</span></li><li><span class="bullet"></span><span class="it-name">M15–M17</span><span class="rtag">OC</span><span class="it-meta">deterministic · Monte Carlo · 5 stress tests</span><span class="st c-fill">Built · QA-tested</span></li><li><span class="bullet"></span><span class="it-name">M18 · M22 · M23</span><span class="rtag">OC</span><span class="it-meta">lever solvers · blend · sensitivity · scenarios</span><span class="st c-fill">Built · QA-tested</span></li><li><span class="bullet"></span><span class="it-name">M19–M21</span><span class="rtag">OC</span><span class="it-meta">series · health ratios · 14 triggers · audit</span><span class="st c-fill">Built · QA-tested</span></li><li class="blk gate"><span class="bullet"></span><span class="it-name">QA sign-off</span><span class="it-meta">Mohan · 20 Nov</span><span class="st c-dark">RESOLVED</span></li></ul></div>
-<div class="stage"><div class="stage-hd"><span class="stage-num">05</span><h3>AI insight layer</h3><span class="stage-meta">RUNS IN ONECHAT</span></div><ul><li><span class="bullet"></span><span class="it-name">Prompt layers</span><span class="rtag">OC</span><span class="it-meta">constitution · firm style · run context</span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">Fragility and scenario signals</span><span class="rtag">OC</span><span class="it-meta"></span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">11 section writers</span><span class="rtag">OC</span><span class="it-meta">plain-English narrative</span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">Number validator</span><span class="rtag">OC</span><span class="it-meta">every figure vs engine</span><span class="st c-out">Built</span></li></ul></div>
-<div class="stage"><div class="stage-hd"><span class="stage-num">06</span><h3>Plan result and report</h3></div><ul><li><span class="bullet"></span><span class="it-name">PlanResult payload</span><span class="rtag">OC</span><span class="it-meta">report binding · disclosures · run diff</span><span class="st c-out">Built</span></li><li><span class="bullet"></span><span class="it-name">Plan storage and serving</span><span class="rtag">DJ</span><span class="it-meta">webhook in · API out</span><span class="st c-fill">Built · staging</span></li><li><span class="bullet"></span><span class="it-name">Plan report core</span><span class="rtag">WEB</span><span class="it-meta">overview · sections · charts</span><span class="tick">C3A-1949</span><span class="st c-dark">In progress</span></li><li><span class="bullet"></span><span class="it-name">Recommendations · what-if · appendix</span><span class="rtag">WEB</span><span class="it-meta"></span><span class="tick">C3A-1950</span><span class="st c-dark">In progress</span></li><li><span class="bullet"></span><span class="it-name">Advisor checks · client view</span><span class="rtag">WEB</span><span class="it-meta"></span><span class="tick">C3A-1951</span><span class="st c-dark">In progress</span></li></ul></div>
-<div class="stage"><div class="stage-hd"><span class="stage-num">07</span><h3>Roadmap</h3></div><ul><li><span class="bullet"></span><span class="it-name">Phase 1 · MVP</span><span class="it-meta">single-person retirement plan</span><span class="st c-dash">Finishing</span></li><li><span class="bullet"></span><span class="it-name">Phase 2 · Light FP</span><span class="it-meta">up to 2 people · end of Nov</span><span class="st c-dark">In progress</span></li><li><span class="bullet"></span><span class="it-name">Phase 3 · Full FP</span><span class="it-meta">many goals · any household size · OMSA</span><span class="st c-dash">Planned</span></li><li><span class="bullet"></span><span class="it-name">India market pack</span><span class="it-meta">assumptions and tuning, selectable</span><span class="st c-dash">Planned</span></li><li class="blk"><span class="bullet"></span><span class="it-name">OMSA platform access</span><span class="st c-dark">OPEN</span></li><li class="blk"><span class="bullet"></span><span class="it-name">India market data and tax rules</span><span class="st c-dark">OPEN</span></li></ul></div></div>
+ <div class="flow"><div class="stage-panel">
+ <div class="sp-hd"><span class="sp-num">1</span><h3>Assumptions foundation</h3><span class="sp-meta">US MARKET</span></div>
+ <div class="sp-items"><div class="sp-item"><div class="sp-name">Assumptions register v2</div><div class="sp-desc">20 groups · ~170 keys · JPM capital markets · SSA life table</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">3 advisor review rounds</div><div class="sp-desc">12 Oct · 15 Oct · 19 Oct refresh</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">Live tax and SS law</div><div class="sp-desc">PolicyEngine-US · 5 filing statuses</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">Assumptions config API</div><div class="sp-desc">v2 → v2.3 · overrides · expiry</div><div class="sp-foot"><span class="rtag">DJ</span><span class="tick">C3A-1684</span><span class="st c-fill">Built · staging</span></div></div><div class="sp-item"><div class="sp-name">Assumptions workspace</div><div class="sp-desc">search · validation · glide path</div><div class="sp-foot"><span class="rtag">WEB</span><span class="tick">C3A-1886–1891</span><span class="st c-fill">Built · staging</span></div></div></div>
+
+</div>
+<div class="flow-link" aria-hidden="true"><svg width="16" height="30" viewBox="0 0 16 30"><line x1="8" y1="0" x2="8" y2="20" stroke="#5F5F5F" stroke-width="1.4"/><path d="M 2,20 L 8,28 L 14,20" fill="none" stroke="#5F5F5F" stroke-width="1.4"/></svg></div>
+<div class="stage-panel">
+ <div class="sp-hd"><span class="sp-num">2</span><h3>Client data intake</h3></div>
+ <div class="sp-items"><div class="sp-item"><div class="sp-name">Start a plan</div><div class="sp-desc">meeting · PDF upload · manual form</div><div class="sp-foot"><span class="rtag">WEB</span><span class="tick">C3A-1946 / 1947</span><span class="st c-dark">In progress</span></div></div><div class="sp-item"><div class="sp-name">Meeting collectors</div><div class="sp-desc">transcript · summary</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">Document collector</div><div class="sp-desc">parsing · extraction</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">PII redaction</div><div class="sp-desc">before any model call</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">Intake APIs</div><div class="sp-desc">status machine · documents</div><div class="sp-foot"><span class="rtag">DJ</span><span class="tick">C3A-1866</span><span class="st c-fill">Built · staging</span></div></div><div class="sp-item"><div class="sp-name">AI gather</div><div class="sp-desc">candidate extraction · timeouts</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">Canonical plan input</div><div class="sp-desc">merge · validators · hints</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div></div>
+
+</div>
+<div class="flow-link" aria-hidden="true"><svg width="16" height="30" viewBox="0 0 16 30"><line x1="8" y1="0" x2="8" y2="20" stroke="#5F5F5F" stroke-width="1.4"/><path d="M 2,20 L 8,28 L 14,20" fill="none" stroke="#5F5F5F" stroke-width="1.4"/></svg></div>
+<div class="stage-panel">
+ <div class="sp-hd"><span class="sp-num">3</span><h3>Review and approve</h3></div>
+ <div class="sp-items"><div class="sp-item"><div class="sp-name">Versioned review</div><div class="sp-desc">save · retry · cancel</div><div class="sp-foot"><span class="rtag">DJ</span><span class="tick">C3A-1866</span><span class="st c-fill">Built · staging</span></div></div><div class="sp-item"><div class="sp-name">Approval screen</div><div class="sp-desc">plan running states</div><div class="sp-foot"><span class="rtag">WEB</span><span class="tick">C3A-1948</span><span class="st c-dark">In progress</span></div></div><div class="sp-item"><div class="sp-name">Validate gate</div><div class="sp-desc">engine contract check</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">Approve → create plan job</div><div class="sp-desc"></div><div class="sp-foot"><span class="rtag">DJ</span><span class="st c-fill">Built · staging</span></div></div></div>
+<div class="sp-callouts"><div class="sp-callout ok"><span class="sp-glyph">⬡</span><span class="sp-name">30 Oct integration smoke · 4 P0 gaps fixed</span><span class="st c-fill">RESOLVED</span></div><div class="sp-callout open"><span class="sp-glyph">⬡</span><span class="sp-name">service auth + gather hardening · C3A-1879</span><span class="st c-dark">OPEN</span></div></div>
+</div>
+<div class="flow-link" aria-hidden="true"><svg width="16" height="30" viewBox="0 0 16 30"><line x1="8" y1="0" x2="8" y2="20" stroke="#5F5F5F" stroke-width="1.4"/><path d="M 2,20 L 8,28 L 14,20" fill="none" stroke="#5F5F5F" stroke-width="1.4"/></svg></div>
+<div class="stage-panel">
+ <div class="sp-hd"><span class="sp-num">4</span><h3>Plan engine · M01–M23</h3><span class="sp-meta">RUNS IN ONECHAT</span></div>
+ <div class="sp-items"><div class="sp-item"><div class="sp-name">M01–M04</div><div class="sp-desc">inputs · timeline · inflation · market tapes</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-fill">Built · QA-tested</span></div></div><div class="sp-item"><div class="sp-name">M05–M09</div><div class="sp-desc">portfolio · income · SS · expenses · retirement need</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-fill">Built · QA-tested</span></div></div><div class="sp-item"><div class="sp-name">M10–M14</div><div class="sp-desc">debt · tax · yearly loop · RMD · waterfall · deficit</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-fill">Built · QA-tested</span></div></div><div class="sp-item"><div class="sp-name">M15–M17</div><div class="sp-desc">deterministic · Monte Carlo · 5 stress tests</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-fill">Built · QA-tested</span></div></div><div class="sp-item"><div class="sp-name">M18 · M22 · M23</div><div class="sp-desc">lever solvers · blend · sensitivity · scenarios</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-fill">Built · QA-tested</span></div></div><div class="sp-item"><div class="sp-name">M19–M21</div><div class="sp-desc">series · health ratios · 14 triggers · audit</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-fill">Built · QA-tested</span></div></div></div>
+<div class="sp-callouts"><div class="sp-callout gate"><span class="sp-glyph">◆</span><span class="sp-name">QA sign-off</span><span class="sp-desc">Mohan · 20 Nov</span><span class="st c-dark">RESOLVED</span><span class="sp-desc">defines what the report shows</span></div></div>
+</div>
+<div class="flow-link" aria-hidden="true"><svg width="16" height="30" viewBox="0 0 16 30"><line x1="8" y1="0" x2="8" y2="20" stroke="#5F5F5F" stroke-width="1.4"/><path d="M 2,20 L 8,28 L 14,20" fill="none" stroke="#5F5F5F" stroke-width="1.4"/></svg></div>
+<div class="stage-panel">
+ <div class="sp-hd"><span class="sp-num">5</span><h3>AI insight layer</h3><span class="sp-meta">RUNS IN ONECHAT</span></div>
+ <div class="sp-items"><div class="sp-item"><div class="sp-name">Prompt layers</div><div class="sp-desc">constitution · firm style · run context</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">Fragility and scenario signals</div><div class="sp-desc"></div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">11 section writers</div><div class="sp-desc">plain-English narrative</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">Number validator</div><div class="sp-desc">every figure vs engine</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div></div>
+
+</div>
+<div class="flow-link" aria-hidden="true"><svg width="16" height="30" viewBox="0 0 16 30"><line x1="8" y1="0" x2="8" y2="20" stroke="#5F5F5F" stroke-width="1.4"/><path d="M 2,20 L 8,28 L 14,20" fill="none" stroke="#5F5F5F" stroke-width="1.4"/></svg></div>
+<div class="stage-panel">
+ <div class="sp-hd"><span class="sp-num">6</span><h3>Plan result and report</h3></div>
+ <div class="sp-items"><div class="sp-item"><div class="sp-name">PlanResult payload</div><div class="sp-desc">report binding · disclosures · run diff</div><div class="sp-foot"><span class="rtag">OC</span><span class="st c-out">Built</span></div></div><div class="sp-item"><div class="sp-name">Plan storage and serving</div><div class="sp-desc">webhook in · API out</div><div class="sp-foot"><span class="rtag">DJ</span><span class="st c-fill">Built · staging</span></div></div><div class="sp-item"><div class="sp-name">Plan report core</div><div class="sp-desc">overview · sections · charts</div><div class="sp-foot"><span class="rtag">WEB</span><span class="tick">C3A-1949</span><span class="st c-dark">In progress</span></div></div><div class="sp-item"><div class="sp-name">Recommendations · what-if · appendix</div><div class="sp-desc"></div><div class="sp-foot"><span class="rtag">WEB</span><span class="tick">C3A-1950</span><span class="st c-dark">In progress</span></div></div><div class="sp-item"><div class="sp-name">Advisor checks · client view</div><div class="sp-desc"></div><div class="sp-foot"><span class="rtag">WEB</span><span class="tick">C3A-1951</span><span class="st c-dark">In progress</span></div></div></div>
+
+</div>
+<div class="flow-link" aria-hidden="true"><svg width="16" height="30" viewBox="0 0 16 30"><line x1="8" y1="0" x2="8" y2="20" stroke="#5F5F5F" stroke-width="1.4"/><path d="M 2,20 L 8,28 L 14,20" fill="none" stroke="#5F5F5F" stroke-width="1.4"/></svg></div>
+<div class="stage-panel">
+ <div class="sp-hd"><span class="sp-num">7</span><h3>Roadmap</h3></div>
+ <div class="sp-items"><div class="sp-item"><div class="sp-name">Phase 1 · MVP</div><div class="sp-desc">single-person retirement plan</div><div class="sp-foot"><span class="st c-dash">Finishing</span></div></div><div class="sp-item"><div class="sp-name">Phase 2 · Light FP</div><div class="sp-desc">up to 2 people · end of Nov</div><div class="sp-foot"><span class="st c-dark">In progress</span></div></div><div class="sp-item"><div class="sp-name">Phase 3 · Full FP</div><div class="sp-desc">many goals · any household size · OMSA</div><div class="sp-foot"><span class="st c-dash">Planned</span></div></div><div class="sp-item"><div class="sp-name">India market pack</div><div class="sp-desc">assumptions and tuning, selectable</div><div class="sp-foot"><span class="st c-dash">Planned</span></div></div></div>
+<div class="sp-callouts"><div class="sp-callout open"><span class="sp-glyph">⬡</span><span class="sp-name">OMSA platform access</span><span class="st c-dark">OPEN</span></div><div class="sp-callout open"><span class="sp-glyph">⬡</span><span class="sp-name">India market data and tax rules</span><span class="st c-dark">OPEN</span></div></div>
+</div></div>
  <p class="note">Stages 4 and 5 run entirely in OneChat. The FP server and the advisor app send work in and display what comes back. The C3A-1866 server work is merged to staging; its ticket is still in review.</p>
 </section>
 
